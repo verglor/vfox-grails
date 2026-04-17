@@ -1,15 +1,23 @@
-# vfox-plugin-template
+# vfox-grails
 
-This is a [vfox plugin](https://vfox.dev/plugins/create/howto.html) template with CI that package and publish the plugin.
+A [vfox](https://vfox.dev) plugin for managing [Grails](https://grails.apache.org) SDK versions.
+
+## Requirements
+
+- [vfox](https://vfox.dev/guides/quick-start.html) 0.3.0+
+
+## Installation
+
+```sh
+vfox add verglor/grails
+```
 
 ## Usage
 
-1. [Generate](https://github.com/version-fox/vfox-plugin-template/generate) a new repository based on this template.
-2. Configure [metadata](https://github.com/version-fox/vfox-plugin-template/blob/main/metadata.lua) information
-3. To develop your plugin further, please read [the plugins create section of the docs](https://vfox.dev/plugins/create/howto.html).
+```sh
+vfox search grails              # list available versions
+vfox install grails@7.0.0      # install a specific version
+vfox use grails@7.0.0          # activate a version
+```
 
-
-## How to publish?
-
-1. Push a new tag to the repository which name is `vX.Y.Z` (X.Y.Z is the version number).
-2. The CI will automatically package, then publish [release](https://github.com/version-fox/vfox-plugin-template/releases/tag/v0.0.1) and publish [manifest](https://github.com/version-fox/vfox-plugin-template/releases/tag/manifest).
+Activating a version sets `GRAILS_HOME` and prepends `$GRAILS_HOME/bin` to `PATH`.
