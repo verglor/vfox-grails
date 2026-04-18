@@ -38,4 +38,31 @@ function util.findBestVersion(versions, prefix)
     return best
 end
 
+--- Parse .sdkmanrc file content, return value of "grails" key or nil
+--- @param content string File content
+--- @return string|nil Version string or nil if grails key not found
+function util.parseSdkmanrc(content)
+    for line in content:gmatch("[^\n]+") do
+        local trimmed = line:match("^%s*(.-)%s*$") or ""
+        if trimmed ~= "" and not trimmed:match("^#") then
+            local v = trimmed:match("^grails%s*=%s*(.+)$")
+            if v then return v end
+        end
+    end
+    return nil
+end
+
+--- Parse a simple version file, return first non-blank, non-comment line or nil
+--- @param content string File content
+--- @return string|nil Version string or nil if no version found
+function util.parseVersionFile(content)
+    for line in content:gmatch("[^\n]+") do
+        local trimmed = line:match("^%s*(.-)%s*$") or ""
+        if trimmed ~= "" and not trimmed:match("^#") then
+            return trimmed
+        end
+    end
+    return nil
+end
+
 return util
