@@ -21,3 +21,12 @@ vfox use grails@7.0.0          # activate a version
 ```
 
 Activating a version sets `GRAILS_HOME` and prepends `$GRAILS_HOME/bin` to `PATH`.
+
+## Development
+
+Run the full test suite (unit + integration) in Docker:
+
+```sh
+docker build -t vfox-grails-test .
+docker run --rm vfox-grails-test
+```

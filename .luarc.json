@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "diagnostics": {
+    "globals": [
+      "describe",
+      "it",
+      "pending",
+      "before_each",
+      "after_each",
+      "setup",
+      "teardown",
+      "insulate",
+      "expose"
+    ]
+  },
+  "workspace": {
+    "checkThirdParty": false,
+    "library": [".luastubs"]
+  }
+}
