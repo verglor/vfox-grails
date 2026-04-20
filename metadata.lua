@@ -5,7 +5,7 @@ PLUGIN = {}
 --- Plugin name
 PLUGIN.name = "grails"
 --- Plugin version
-PLUGIN.version = "1.0.0"
+PLUGIN.version = "1.1.1"
 --- Plugin homepage
 PLUGIN.homepage = "https://github.com/verglor/vfox-grails"
 --- Plugin license, please choose a correct license according to your needs.
