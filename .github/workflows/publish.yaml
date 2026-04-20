@@ -11,8 +11,18 @@ permissions:
   contents: write
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Build test image
+        run: docker build -t vfox-grails-test .
+      - name: Run tests
+        run: docker run --rm vfox-grails-test
   publish:
     runs-on: ubuntu-latest
+    needs: test
     if: github.event_name == 'push' || (github.event.pull_request.merged == true && startsWith(github.event.pull_request.title, 'Release v'))
     steps:
       - name: Checkout code
